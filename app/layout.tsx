@@ -4,7 +4,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'NS Medicoplast',
-  description: 'Created with NS Medicoplast',
+  description: 'Delivering quality supplies for better healthcare outcomes',
   applicationName: 'NS Medicoplast',
   appleWebApp: {
     title: 'NS Medicoplast',
