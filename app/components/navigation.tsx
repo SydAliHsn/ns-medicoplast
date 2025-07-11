@@ -68,7 +68,7 @@ export function Navigation() {
               size="sm"
               className="bg-blue-600 hover:bg-blue-700"
             >
-              <Link href={'/contact?type=quote-request'}>
+              <Link href={'/contact?type=quote-request#message-form'}>
                 <Mail className="h-4 w-4 mr-2" />
                 Get Quote
               </Link>
@@ -111,15 +111,23 @@ export function Navigation() {
                 ))}
                 <div className="pt-4 space-y-2">
                   <Button
+                    asChild
                     variant="outline"
                     className="w-full bg-transparent"
                   >
-                    <Phone className="h-4 w-4 mr-2" />
-                    Contact
+                    <Link href={'/contact'}>
+                      <Phone className="h-4 w-4 mr-2" />
+                      Contact
+                    </Link>
                   </Button>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">
-                    <Mail className="h-4 w-4 mr-2" />
-                    Get Quote
+                  <Button
+                    asChild
+                    className="w-full bg-blue-600 hover:bg-blue-700"
+                  >
+                    <Link href={'/contact?type=quote-request#message-form'}>
+                      <Mail className="h-4 w-4 mr-2" />
+                      Get Quote
+                    </Link>
                   </Button>
                 </div>
               </div>

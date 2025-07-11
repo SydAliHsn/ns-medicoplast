@@ -88,7 +88,10 @@ function ContactPage() {
       </section>
 
       {/* Contact Form and Info */}
-      <section className="py-20">
+      <section
+        className="py-20"
+        id="message-form"
+      >
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
