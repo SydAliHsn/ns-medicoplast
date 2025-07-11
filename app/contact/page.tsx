@@ -2,7 +2,7 @@
 
 import type React from 'react';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useQueryState } from 'nuqs';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -15,9 +15,17 @@ import { Badge } from '@/components/ui/badge';
 import { Phone, Mail, MapPin, Clock, Send, MessageSquare, Building, CheckCircle } from 'lucide-react';
 import { Navigation } from '../components/navigation';
 import { Footer } from '../components/footer';
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm } from '@formspree/react';
 
-export default function ContactPage() {
+export default function Page() {
+  return (
+    <Suspense>
+      <ContactPage />
+    </Suspense>
+  );
+}
+
+function ContactPage() {
   const [type] = useQueryState('type');
   const [formData, setFormData] = useState({
     name: '',
