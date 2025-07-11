@@ -15,6 +15,7 @@ import { Badge } from '@/components/ui/badge';
 import { Phone, Mail, MapPin, Clock, Send, MessageSquare, Building, CheckCircle } from 'lucide-react';
 import { Navigation } from '../components/navigation';
 import { Footer } from '../components/footer';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function ContactPage() {
   const [type] = useQueryState('type');
@@ -27,8 +28,7 @@ export default function ContactPage() {
     message: '',
     inquiryType: type ? type : '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [state, handleSubmit] = useForm('xdkzqwpe');
 
   useEffect(() => {
     if (type === 'quote-request') {
@@ -45,31 +45,6 @@ export default function ContactPage() {
 
   const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        subject: '',
-        message: '',
-        inquiryType: '',
-      });
-    }, 3000);
   };
 
   return (
@@ -129,119 +104,121 @@ export default function ContactPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  {isSubmitted ? (
-                    <div className="text-center py-8 space-y-4">
-                      <CheckCircle className="h-16 w-16 text-green-600 mx-auto" />
-                      <h3 className="text-xl font-semibold text-gray-900">Message Sent Successfully!</h3>
-                      <p className="text-gray-600">
-                        Thank you for contacting us. We'll get back to you within 24 hours.
-                      </p>
-                    </div>
-                  ) : (
-                    <form
-                      onSubmit={handleSubmit}
-                      className="space-y-6"
-                    >
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="name">Full Name *</Label>
-                          <Input
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            placeholder="Your full name"
-                            required
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="email">Email Address *</Label>
-                          <Input
-                            id="email"
-                            name="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            placeholder="your.email@example.com"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="phone">Phone Number</Label>
-                          <Input
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                            placeholder="+92 326 1234567"
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="company">Company/Organization</Label>
-                          <Input
-                            id="company"
-                            name="company"
-                            value={formData.company}
-                            onChange={handleInputChange}
-                            placeholder="Your organization name"
-                          />
-                        </div>
-                      </div>
-
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-6"
+                  >
+                    <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <Label htmlFor="inquiryType">Inquiry Type</Label>
-                        <Select
-                          value={formData.inquiryType}
-                          onValueChange={value => handleSelectChange('inquiryType', value)}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select inquiry type" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="product-inquiry">Product Inquiry</SelectItem>
-                            <SelectItem value="quote-request">Quote Request</SelectItem>
-                            <SelectItem value="technical-support">Technical Support</SelectItem>
-                            <SelectItem value="partnership">Partnership Opportunity</SelectItem>
-                            <SelectItem value="general">General Inquiry</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="subject">Subject *</Label>
+                        <Label htmlFor="name">Full Name *</Label>
                         <Input
-                          id="subject"
-                          name="subject"
-                          value={formData.subject}
+                          id="name"
+                          name="name"
+                          value={formData.name}
                           onChange={handleInputChange}
-                          placeholder="Brief subject of your inquiry"
+                          placeholder="Your full name"
                           required
                         />
                       </div>
-
                       <div className="space-y-2">
-                        <Label htmlFor="message">Message *</Label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
+                        <Label htmlFor="email">Email Address *</Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          value={formData.email}
                           onChange={handleInputChange}
-                          placeholder="Please provide details about your inquiry, including specific products or services you're interested in..."
-                          rows={6}
+                          placeholder="your.email@example.com"
                           required
                         />
                       </div>
+                    </div>
 
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">Phone Number</Label>
+                        <Input
+                          id="phone"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          placeholder="+92 326 1234567"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="company">Company/Organization</Label>
+                        <Input
+                          id="company"
+                          name="company"
+                          value={formData.company}
+                          onChange={handleInputChange}
+                          placeholder="Your organization name"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="inquiryType">Inquiry Type</Label>
+                      <Select
+                        value={formData.inquiryType}
+                        onValueChange={value => handleSelectChange('inquiryType', value)}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select inquiry type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="product-inquiry">Product Inquiry</SelectItem>
+                          <SelectItem value="quote-request">Quote Request</SelectItem>
+                          <SelectItem value="technical-support">Technical Support</SelectItem>
+                          <SelectItem value="partnership">Partnership Opportunity</SelectItem>
+                          <SelectItem value="general">General Inquiry</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="subject">Subject *</Label>
+                      <Input
+                        id="subject"
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleInputChange}
+                        placeholder="Brief subject of your inquiry"
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Message *</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Please provide details about your inquiry, including specific products or services you're interested in..."
+                        rows={6}
+                        required
+                      />
+                    </div>
+
+                    {true ? (
+                      <div className="text-center space-y-2">
+                        <div className="flex gap-2 items-center justify-center">
+                          <CheckCircle className="size-6 text-green-600" />
+                          <h3 className="text-xl font-semibold text-gray-900">Message Sent Successfully!</h3>
+                        </div>
+                        <p className="text-gray-600">
+                          Thank you for contacting us. We'll get back to you within 24 hours.
+                        </p>
+                      </div>
+                    ) : (
                       <Button
                         type="submit"
                         className="w-full bg-blue-600 hover:bg-blue-700"
                         size="lg"
-                        disabled={isSubmitting}
+                        disabled={state.submitting}
                       >
-                        {isSubmitting ? (
+                        {state.submitting ? (
                           <>
                             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
                             Sending Message...
@@ -253,8 +230,8 @@ export default function ContactPage() {
                           </>
                         )}
                       </Button>
-                    </form>
-                  )}
+                    )}
+                  </form>
                 </CardContent>
               </Card>
             </div>
