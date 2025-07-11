@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { Manrope } from 'next/font/google';
 import './globals.css';
 
@@ -28,7 +29,9 @@ export default function RootLayout({
       lang="en"
       className={manrope.variable}
     >
-      <body>{children}</body>
+      <body>
+        <NuqsAdapter>{children}</NuqsAdapter>
+      </body>
     </html>
   );
 }

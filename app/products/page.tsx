@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Search, Filter, Star, Download, Phone, Mail } from 'lucide-react';
 import { Navigation } from '../components/navigation';
 import { Footer } from '../components/footer';
+import Link from 'next/link';
 
 export default function ProductsPage() {
   const products = [
@@ -205,7 +206,13 @@ export default function ProductsPage() {
                       >
                         <Download className="h-4 w-4" />
                       </Button>
-                      <Button size="sm">Inquire Now</Button>
+
+                      <Button
+                        asChild
+                        size="sm"
+                      >
+                        <Link href={'/contact?type=product-inquiry'}> Inquire Now</Link>
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
@@ -297,11 +304,14 @@ export default function ProductsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
+                asChild
                 size="lg"
                 variant="secondary"
               >
-                <Phone className="mr-2 h-4 w-4" />
-                Request Quote
+                <Link href="/contact?type=request-quote">
+                  <Phone className="mr-2 h-4 w-4" />
+                  Request Quote
+                </Link>
               </Button>
               <Button
                 size="lg"

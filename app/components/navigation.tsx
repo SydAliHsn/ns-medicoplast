@@ -53,19 +53,25 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center space-x-4">
             <Button
+              asChild
               variant="outline"
               size="sm"
               className="lg:flex hidden"
             >
-              <Phone className="h-4 w-4 mr-2" />
-              Contact
+              <Link href={'/contact'}>
+                <Phone className="h-4 w-4 mr-2" />
+                Contact
+              </Link>
             </Button>
             <Button
+              asChild
               size="sm"
               className="bg-blue-600 hover:bg-blue-700"
             >
-              <Mail className="h-4 w-4 mr-2" />
-              Get Quote
+              <Link href={'/contact?type=quote-request'}>
+                <Mail className="h-4 w-4 mr-2" />
+                Get Quote
+              </Link>
             </Button>
           </div>
 

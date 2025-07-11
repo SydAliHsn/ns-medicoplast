@@ -2,7 +2,8 @@
 
 import type React from 'react';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useQueryState } from 'nuqs';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,22 +12,12 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Send,
-  MessageSquare,
-  HeadphonesIcon,
-  Building,
-  Globe,
-  CheckCircle,
-} from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, MessageSquare, Building, CheckCircle } from 'lucide-react';
 import { Navigation } from '../components/navigation';
 import { Footer } from '../components/footer';
 
 export default function ContactPage() {
+  const [type] = useQueryState('type');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -34,10 +25,18 @@ export default function ContactPage() {
     company: '',
     subject: '',
     message: '',
-    inquiryType: '',
+    inquiryType: type ? type : '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (type === 'quote-request') {
+      setFormData(prev => ({ ...prev, inquiryType: 'quote-request' }));
+    } else if (type === 'product-enquiry') {
+      setFormData(prev => ({ ...prev, inquiryType: 'product-inquiry' }));
+    }
+  }, [type]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -194,7 +193,10 @@ export default function ContactPage() {
 
                       <div className="space-y-2">
                         <Label htmlFor="inquiryType">Inquiry Type</Label>
-                        <Select onValueChange={value => handleSelectChange('inquiryType', value)}>
+                        <Select
+                          value={formData.inquiryType}
+                          onValueChange={value => handleSelectChange('inquiryType', value)}
+                        >
                           <SelectTrigger>
                             <SelectValue placeholder="Select inquiry type" />
                           </SelectTrigger>
@@ -261,7 +263,10 @@ export default function ContactPage() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-3xl font-bold text-gray-900">Contact Information</h2>
-                <p className="text-gray-600">Multiple ways to reach us. Choose the method that works best for you.</p>
+                <p className="text-gray-600">
+                  Multiple ways to reach us. Choose the method that works best for you. Please keep our business ours in
+                  mind when reaching out.
+                </p>
               </div>
 
               <div className="space-y-6">

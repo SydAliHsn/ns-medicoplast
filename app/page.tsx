@@ -211,11 +211,14 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
+                asChild
                 size="lg"
                 variant="secondary"
               >
-                <Phone className="mr-2 h-4 w-4" />
-                Call Us Now
+                <Link href={'tel:+923344466127'}>
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call Us Now
+                </Link>
               </Button>
               <Button
                 size="lg"

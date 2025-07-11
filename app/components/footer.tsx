@@ -22,25 +22,25 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="#"
+                href="/products"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href="/products"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href="/products"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href="/products"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Instagram className="h-5 w-5" />
@@ -76,17 +76,17 @@ export function Footer() {
                   Products
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
-                  href="#"
+                  href="/products"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Services
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
-                  href="#"
+                  href="/contact"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Support
@@ -101,7 +101,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
+                  href="/products"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Diagnostic Equipment
@@ -109,7 +109,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/products"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Surgical Instruments
@@ -117,7 +117,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/products"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Patient Monitoring
@@ -125,7 +125,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/products"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Life Support Systems
@@ -133,7 +133,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/products"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   Emergency Equipment
@@ -171,19 +171,19 @@ export function Footer() {
             <p className="text-gray-400 text-sm">© 2025 NS Medicoplast. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
-                href="#"
+                href="/products"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="#"
+                href="/products"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Terms of Service
               </Link>
               <Link
-                href="#"
+                href="/products"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Cookie Policy
