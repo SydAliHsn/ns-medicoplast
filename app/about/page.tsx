@@ -83,7 +83,7 @@ export default function AboutPage() {
                 alt="NS Medicoplast Facility"
                 width={600}
                 height={600}
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-xl"
               />
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg text-center">
+            <Card className="border-0 shadow-md text-center">
               <CardHeader className="pb-4">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="h-8 w-8 text-blue-600" />
@@ -116,7 +116,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg text-center">
+            <Card className="border-0 shadow-md text-center">
               <CardHeader className="pb-4">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Eye className="h-8 w-8 text-green-600" />
@@ -131,7 +131,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg text-center">
+            <Card className="border-0 shadow-md text-center">
               <CardHeader className="pb-4">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="h-8 w-8 text-red-600" />
@@ -161,7 +161,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-0 shadow-lg text-center">
+            <Card className="border-0 shadow-md text-center">
               <CardHeader>
                 <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
                   <Image
@@ -183,7 +183,7 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-lg text-center">
+            <Card className="border-0 shadow-md text-center">
               <CardHeader>
                 <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
                   <Image

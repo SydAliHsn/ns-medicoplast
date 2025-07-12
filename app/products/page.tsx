@@ -234,7 +234,7 @@ export default function ProductsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center border-0 shadow-lg">
+            <Card className="text-center border-0 shadow-md">
               <CardHeader>
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="h-8 w-8 text-blue-600" />
@@ -248,7 +248,7 @@ export default function ProductsPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-0 shadow-lg">
+            <Card className="text-center border-0 shadow-md">
               <CardHeader>
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="h-8 w-8 text-green-600" />
@@ -262,7 +262,7 @@ export default function ProductsPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-0 shadow-lg">
+            <Card className="text-center border-0 shadow-md">
               <CardHeader>
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="h-8 w-8 text-purple-600" />
@@ -276,7 +276,7 @@ export default function ProductsPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center border-0 shadow-lg">
+            <Card className="text-center border-0 shadow-md">
               <CardHeader>
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star className="h-8 w-8 text-orange-600" />
@@ -308,7 +308,7 @@ export default function ProductsPage() {
                 size="lg"
                 variant="secondary"
               >
-                <Link href="/contact?type=request-quote">
+                <Link href="/contact?type=quote-request#message-form">
                   <Phone className="mr-2 h-4 w-4" />
                   Request Quote
                 </Link>

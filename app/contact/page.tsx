@@ -212,7 +212,7 @@ function ContactPage() {
                       />
                     </div>
 
-                    {true ? (
+                    {state.succeeded ? (
                       <div className="text-center space-y-2">
                         <div className="flex gap-2 items-center justify-center">
                           <CheckCircle className="size-6 text-green-600" />
